@@ -1,5 +1,6 @@
 site <- "https://movie.daum.net/moviedb/grade?movieId=121137&type=netizen&page="
 movie.review <- NULL
+library(rvest)
 
 for(i in 1:20){
   url <- paste(site, i, sep="")

@@ -1,0 +1,2138 @@
+"","title"
+"1","
+	                        						
+
+        
+
+
+	본문 바로가기
+	메뉴 바로가기
+
+
+
+
+	
+	
+		
+			
+				영화
+			
+			관련서비스
+			
+					연예
+				
+			
+				
+					검색어 입력폼
+						통합 검색
+                        검색하기
+					
+			
+			
+				
+					영화
+					
+				 
+					영화인
+					
+			
+			
+			
+				<li>
+					<%
+						var tiaraClass = '#gnb #search #suggest';
+						var titleName = (title && title.replace(keyword, '<span class=""emph_sgt"">' + keyword + '</span>')) || '';
+						var imgAlt = title || '';
+						var titleEnName = '';
+					%>
+					<a href=""<%=href%>"" class=""link_item <%=tiaraClass%> @<%=index%>"">
+							<span class=""thumb_g thumb_noimage bg_noimage"">
+								<img src=""<%=photoConvert(photoUrl || '', 100, 144, 'C')%>"" width=""35"" height=""49"" class=""thumb_img"" alt=""<%=imgAlt%>"" onload=""noImageOnLoad($(this))"">
+							</span>
+							<div class=""cont_item"">
+								<strong class=""tit_item""><%=titleName%></strong>
+								<span class=""txt_year""><%=(year == 'null') ? '' : year%></span>
+							</div>
+					</a>
+				</li>
+			
+
+				
+			
+				영화 메인메뉴
+				
+						
+														
+							홈
+							
+							
+						
+					
+					
+						
+														현재상영작
+							
+						
+					
+					
+						
+														개봉예정작
+							
+						
+					
+					
+						
+														박스오피스
+							
+						
+					
+					
+						
+							빠른예매
+							
+						
+					
+                    
+						
+														뉴스
+							
+						
+					
+                    
+                    
+                        
+                            독립영화관
+                            
+                        
+                    
+                    
+					
+						<li>
+							<a href=""<%=link%>"" class=""link_gnb7 #gnb #pc #special"" target=""gnb_btn_window""><span class=""ico_new"">new</span><%=text%></a><!-- 독립1차 수정 -->
+						</li>
+					
+					
+							
+																내평점
+							
+						
+						
+							
+								예매내역
+							
+						
+					
+			
+		
+
+		
+		 
+			
+				Daum영화 검색하기
+				
+					Daum영화 검색 폼
+					검색어 삭제
+					검색
+					닫기
+					
+
+				
+				
+				
+					
+						<li>
+							<%
+								var tiaraClass = '#gnb #search #suggest';
+								var titleName = (title && title.replace(keyword, '<span class=""emph_keyword"">' + keyword + '</span>')) || '';
+								var imgAlt = title || '';
+								var titleEnName = '';
+							%>
+							<a href=""<%=href%>"" class=""link_sgt <%=tiaraClass%> @<%=index%>"">
+								<span class=""thumb_sgt thumb_noimage bg_noimage"">
+									<span class=""box_current"">현재 선택 검색어</span>
+									<img src=""<%=photoConvert(photoUrl || '', 100, 144, 'C')%>"" class=""img_sgt"" alt=""<%=imgAlt%>"" onload=""noImageOnLoad($(this))"">
+								</span>
+								<strong class=""tit_g"">
+									<span class=""vertical_m"">
+										<span class=""tit_name""><%=titleName%></span>
+										<span class=""tit_sname""><%=(year == 'null') ? '' : year%></span>
+									</span>
+								</strong>
+							</a>
+						</li>
+					
+						영화
+						영화인
+						
+					
+					
+					
+						전날조회수 기준
+						
+							
+								인기 영화
+							
+
+							
+								<li>
+									<% if (id) { %>
+									<a href=""/moviedb/main?movieId=<%=id%>"" class=""link_sgt #ranking #movie @<%=idx%>"">
+									<% } else { %>
+									<span class=""link_sgt"">
+									<% } %>
+										<span class=""num_rank""><%=rank%></span>
+										<strong class=""tit_g"">
+											<span class=""vertical_m"">
+												<span class=""tit_name""><%=title%></span>
+											</span>
+										</strong>
+										<span class=""rank_update rank_<%=upDown%> ""><!-- 상승 일 경우 rank_up 클래스 추가 // 하락 일 경우 rank_down // 동일할 경우 rank_same -->
+											<span class=""ico_popcorn"">
+												<% if (upDown == 'up') { %> 상승 <% } %>
+												<% if (upDown == 'down') { %> 하락 <% } %>
+												<% if (upDown == 'same') { %> 변동없음 <% } %>
+											</span>
+											<span class=""num_g""><% if (absRankChange > 0) { %> <%=absRankChange%> <%}%></span>
+										</span>
+									<% if (id) { %>
+									</a>
+									<% } else { %>
+									</span>
+									<% } %>
+								</li>
+							
+						
+							
+								인기 영화인
+							
+							
+								<li>
+									<a href=""/person/main?personId=<%=id%>"" class=""link_sgt #ranking #person @<%=rank%>"">
+										<span class=""num_rank""><%=rank%></span>
+										<span class=""thumb_sgt thumb_noimage bg_noimage"">
+											<span class=""box_current"">현재 선택 검색어</span>
+											<img src=""<%=(image) ? ('//img1.daumcdn.net/thumb/S42x60/?fname=' + photoFullNameConverter(image)) : ''%>"" class=""img_sgt"" alt=""<%=name%>"" onload=""noImageOnLoad($(this))"">
+										</span>
+										<strong class=""tit_g"">
+											<span class=""vertical_m"">
+												<span class=""tit_name""><%=nameKo%></span>
+												<span class=""tit_sname""><%=nameEn%></span>
+											</span>
+										</strong>
+										<span class=""rank_update rank_<%=upDown%>""><!-- 상승 일 경우 rank_up 클래스 추가 // 하락 일 경우 rank_down // 동일할 경우 rank_same -->
+											<span class=""ico_popcorn"">
+												<% if (upDown == 'up') { %> 상승 <% } %>
+												<% if (upDown == 'down') { %> 하락 <% } %>
+												<% if (upDown == 'same') { %> 변동없음 <% } %>
+											</span>
+											<span class=""num_g""><% if (absRankGap > 0) { %> <%=absRankGap%> <%}%></span>
+										</span>
+									</a>
+								</li>
+							
+					
+					
+				
+			
+		
+
+		
+			var minidaum_options = {
+									enableLogoutRetun: true
+							}
+		
+			var isMobileScreenMode = $(window).width() <= limitWidthOfMobile;
+			var _tiq = 'undefined' !== typeof _tiq ? _tiq : [];
+			var __TiaraObject = __TiaraObject || {};
+			if ('undefined' === typeof __TiaraObject.startTime) {
+				__TiaraObject.startTime = new Date();
+			}
+
+			if (isMobileScreenMode == true) {
+				_tiq.push(['__setParam', 'svcdomain', 'm.movie.daum.net']);
+			} else {
+				_tiq.push(['__setParam', 'svcdomain', 'movie.daum.net']);
+			}
+
+            var tiaraPageName = """";
+
+			var splitPath = location.pathname.split('/');
+			_tiq.push(['__setSection', splitPath[1] || 'movie' ]);
+            if (tiaraPageName != """") {
+                _tiq.push(['__setPageName', tiaraPageName ]);
+            } else {
+                _tiq.push(['__setPageName', splitPath[2] || 'default' ]);
+            }
+			_tiq.push(['__setConfig', {enablePageshow: true, enableButton:true, enableHash: true}]);
+			_tiq.push(['__trackPageview']);
+			_tiq.push(['__clickOn']);
+		
+			$(document).ready(function() {
+				setSuitMyInfo();
+				resize.executeWhenWindowResize(setSuitMyInfo);
+
+				$(""#daumUserLogin, #daumUserLoginMobile"").click(function() {
+					location.href = $(""#daumMinidaum"").find(""a"").attr(""href"");
+					movietools.tiara.send(splitPath[1] || ""movie"", ""sidemenu login"");
+				});
+			});
+
+			function setSuitMyInfo() {
+				var hrefstr = """";
+				if($(window).width() < limitWidthOfMobile) {
+					hrefstr = ""https://member.daum.net/m/home.daum"";
+				} else {
+					hrefstr = ""https://member.daum.net/home.daum"";
+				}
+				$(""div.detail_profile"").find(""a.link_profile.link_edit"").attr(""href"", hrefstr);
+			}
+			
+			function openMenu() {
+				$(""#dkmHead"").addClass(""mside_on"");
+				$(""#dkHead"").addClass(""gnb_on"");
+				if ($(window).width() < limitWidthOfMobile) {
+					$(""body"").addClass(""vfixed_on"");
+					$(""body"").css(""overflow"", ""hidden"");
+					$(""body"").css(""height"", $(window).height() + ""px"");
+					$(""html"").css(""overflow"", ""hidden"");
+					if ($(""#dkmHead"").hasClass(""head_vtype"")) {
+						$("".bnr_top.bnr_adam"").css(""top"", ($(""#dkmHead"").height() - $("".bnr_top.bnr_adam"").height()) + ""px"");
+						$(""#dkWrap"").css(""top"", ""-"" + $("".bnr_top.bnr_adam"").height() + ""px"");
+					} else {
+						$("".bnr_top.bnr_adam"").css(""top"", ""-"" + $("".bnr_top.bnr_adam"").height() + ""px"");
+						$(""#dkWrap"").css(""top"", ""-"" + $("".bnr_top.bnr_adam"").height() + ""px"");
+					}
+				}
+				movietools.tiara.send(splitPath[1] || ""movie"", ""gnb menu"");
+			}
+
+			function closeMenu() {
+				$(""#dkmHead"").removeClass(""mside_on"");
+				$(""#dkHead"").removeClass(""gnb_on"");
+				$(""body"").removeClass(""vfixed_on"");
+				$(""body"").css(""overflow"", """");
+				$(""body"").css(""height"", """");
+				$(""html"").css(""overflow"", """");
+				$("".bnr_top.bnr_adam"").css(""top"", """");
+				$(""#dkWrap"").css(""top"", """");
+
+				movietools.tiara.send(splitPath[1] || ""movie"", ""sidemenu close"");
+			}
+
+					
+    var CommentRxSubject;
+
+    $(document).ready(function() {
+
+        // RxSubject call
+        CommentRxSubject = new Rx.Subject();
+        CommentRxSubject.concatMap(function(request) {
+
+            return Rx.Observable.zip(
+                    Rx.Observable.defer(function() { return Rx.Observable.fromPromise($.ajax(request.ajaxCall));}),
+                    Rx.Observable.just(request.callback),
+                    function(response, callback) {
+                        return {
+                            response: response,
+                            callback: callback
+                        }
+                    })[""catch""](Rx.Observable.just(
+                    {failCallback: request.failCallback}
+            ));
+
+        }).subscribe(function onNext(responseAndCallback) {
+            if (responseAndCallback.failCallback) {
+                responseAndCallback.failCallback();
+                return ;
+            }
+            responseAndCallback.callback(responseAndCallback.response);
+
+        }, function onError(err) {
+            console.log(""Error: "" + err);
+        });
+    });
+
+	
+	 
+		
+			
+				
+					
+					영화
+				
+							
+			
+									
+						통합 검색
+					
+								
+					주요 서비스 메뉴 펼치기
+				
+			
+		
+
+						
+			영화 메뉴
+
+            
+			
+												
+		
+					
+			
+				
+		
+		
+			사이드메뉴
+			 
+				
+											
+							
+							로그인해주세요
+						
+									
+				
+						내평점
+					
+					
+						예매내역
+					
+				
+                        
+                        홈
+                    
+                    
+                        영화
+                    
+                    
+                        랭킹
+                    
+                    
+                        예매
+                    
+                    
+                        뉴스
+                    
+                    
+                        독립영화
+                    
+                    
+                        공지사항
+                    
+                전체서비스
+				사이드메뉴 닫기
+			
+		
+		
+	
+	
+		
+	
+	
+		
+
+
+
+
+		
+
+
+
+영화상세 본문
+
+	엑시트
+			
+					
+				플레이어
+				
+										예고편
+											외 5편
+									
+			
+			
+
+
+
+document.domain = ""daum.net"";
+function getPlayerIframeSrc(vid) {
+            var autoplay = ""false"";
+    
+    if(vid) {
+		return ""https://kakaotv.daum.net/embed/player/cliplink/"" + (vid + ""@my"") + ""?service=daum_movie"" +
+                ""&autoplay="" + autoplay + ""&profile=HIGH"" + ""&playsinline=true"";
+	}
+	return false;
+}
+function getPlayerIframeSrcByClipId(clipId) {
+            var autoplay = ""false"";
+    
+    if(clipId) {
+        return ""https://kakaotv.daum.net/embed/player/cliplink/"" + clipId + ""?service=daum_movie"" +
+                ""&autoplay="" + autoplay + ""&profile=HIGH"" + ""&playsinline=true"";
+    }
+    return false;
+}
+ 
+	
+		메인
+			출연&스텝
+			평점
+						관련영화
+					
+
+	
+					var cookieJsonString = $.cookie('recommend_movies');
+			var recommendMoviesFromCookie = (cookieJsonString) ? JSON.parse(cookieJsonString) : null;
+			if (recommendMoviesFromCookie && recommendMoviesFromCookie.movieId
+				&& recommendMoviesFromCookie.movieId == 121137 && recommendMoviesFromCookie.items
+				&& recommendMoviesFromCookie.items.length > 0) {
+				recommendMoviesFromCookie[""alreadyLoaded""] = false;
+				var cookieJsonString = JSON.stringify(recommendMoviesFromCookie);
+						$.cookie('recommend_movies', cookieJsonString ,
+							{path: '/', domain: 'movie.daum.net', expires: (cookieJsonString ? 1 : null)});
+                $(""#moviedb_related_tab"").show();
+            }
+		
+		// 탑 영상 재생
+		function topVideoPlay(vid) {
+			location.href = ""/moviedb/video?id=121137"";
+			movietools.tiara.send(""moviedb"", ""video play"");
+		}
+	
+		// 신고버튼 눌렀을때
+		function clickReportBtn(commentId) {
+	
+			var site_id = ""MovieDetail"";
+			var href = location.href;
+			window.open(""http://m.spam119.daum.net/form?platformCode=MOVIE&contentType=COMMENT&siteId=""
+									+ site_id + ""&commentId="" + commentId + ""&returnUrl="" + encodeURIComponent(href));
+			movietools.tiara.send(""moviedb"", ""grade netizen spamreport"");
+		}
+
+		function deleteOnly(userRatingId, failCallback) {
+			var apiUrl = ""/data/movie/rating/delete.json"";
+			jQuery.post(apiUrl, {userRatingId:userRatingId}, function(data) {
+				if(data.data == true) {
+					alert(""평점이 삭제되었습니다."");
+					$.cookie('moviecomment_position', $(window).scrollTop(),
+						{path: '/', domain: 'movie.daum.net', expires: 1});
+					location.reload(true);
+				} else {
+					alert(""정상적으로 처리되지 않았습니다. 다시 확인해 주세요."");
+					if (failCallback) {
+						failCallback();
+					}
+				}
+			}).fail(function() {
+                alert(""정상적으로 처리되지 않았습니다. 다시 확인해 주세요."");
+				if (failCallback) {
+					failCallback();
+				}
+			});
+		}
+		
+		// 평점 삭제하기
+		function deleteComment(userRatingId) {
+			movietools.tiara.send(""moviedb"", ""grade netizen delete"");
+			
+			if(confirm(""평점을 삭제하시겠습니까?"")) {
+				deleteOnly(userRatingId);
+			}
+		}
+		
+		// 로그인페이지로 이동
+		function goLoginPage() {
+			if(confirm(""먼저 로그인 하셔야 합니다.\n로그인 페이지로 이동 하시겠습니까?"")){
+				top.location = ""https://logins.daum.net/accounts/loginform.do?mobilefull=1&url=""+encodeURIComponent(location.href);
+			}
+		}
+		
+		// 로그인 체크 후 처리
+		function loginCheckThenAction(callback) {
+			jQuery.get(""/data/movie/user/info.json"", {}, function(data) {
+				var resObj = data.data;
+				if(!resObj.loginYn) {
+					goLoginPage();
+					return false;
+				}
+				
+				callback(resObj);
+			});
+		}
+
+	
+    function focusRatingCommentArea(textAreaEmt) {
+        var textAreaValue = textAreaEmt.val() || textAreaEmt.attr('value');
+        EVALUATION_MODULE.evaluationTextareaOnKeyUp(textAreaEmt);
+        textAreaEmt.focus().val("""").val(textAreaValue);
+        textAreaEmt.focus().attr('value', """").attr(""value"", textAreaValue);
+    }
+
+    span.kakao_emoticon {
+        position:relative;
+    }
+
+
+    // 1. SDK 초기화
+    //Kakao.init('e9c0deedd445da99410fb5f752b50b73');
+    Kakao.init('53e566aa17534bc816eb1b5d8f7415ee');
+
+    // 2. 이모티콘 키보드 초기화
+    Kakao.Emoticon.init({
+        // 옵션 설정
+        useAppKey: true,
+        tabmenu: 'TOP',
+        needConnectKakao: true,
+        callback: {
+            'showKeyboard': function () {
+                $(""#writeCommentArea .keyboard_wrapper"").addClass(""on"");
+            },
+            'hideKeyboard': function () {
+                $(""#writeCommentArea .keyboard_wrapper"").removeClass(""on"");
+            },
+            'selectEmoticon': function (obj) {
+                actUtil.loginCheckThenAction(function() {
+                    openCommentArea();
+                });
+
+                var thumbAppend = $(""#writeCommentArea .thumb_append"");
+                thumbAppend.find(""img"").attr(""src"", obj.image_url);
+
+                var ratingForm = $(""#myRatingForm"");
+                ratingForm.find(""input[name='emItemId']"").val(obj.item_id);
+                ratingForm.find(""input[name='emResourceId']"").val(obj.resource_id);
+                ratingForm.find(""input[name='emItemSubType']"").val(obj.item_sub_type);
+                thumbAppend.show();
+
+                var textAreaEmt = $(""#wrap_impression"").find(""textarea"");
+                focusRatingCommentArea(textAreaEmt);
+
+                return true;
+            },
+            'connectKakao': function() {
+                                    location.href = 'https://member.daum.net/m/kakaoaccount/linkform.daum?url=' + encodeURIComponent(location.href);
+                            }
+        }
+    });
+
+    // 4. 이모티콘 키보드 버튼 클릭 이벤트 핸들러
+    /**
+     * 이모티콘 키보드 show/hide
+     * @param event event object
+     * @param keyboardContainer - 키보드를 감싸고 있는 컨데이너 엘리먼트 Id
+     */
+    function toggleMenu(event, keyboardContainer) {
+        var keyboardlayer = document.getElementById(keyboardContainer);
+        Kakao.Emoticon.toggleKeyboard(keyboardlayer);
+        var eventEmt = $(event.target || event.srcElement);
+        var keyboardWrapper = eventEmt.parents("".keyboard_wrapper"");
+    }
+
+    function deleteEmoticon() {
+        var thumbAppend = $(""#writeCommentArea .thumb_append"");
+        thumbAppend.hide();
+        thumbAppend.find(""img"").attr(""src"", """");
+
+        var ratingForm = $(""#myRatingForm"");
+        ratingForm.find(""input[name='emItemId']"").val(""NONE"");
+        ratingForm.find(""input[name='emResourceId']"").val("""");
+        ratingForm.find(""input[name='emItemSubType']"").val("""");
+
+        // 코멘트가 없으면
+        if ($(""#writeCommentArea"").find(""textarea"").val().length == 0 && !ratingValues.isMobileWriteOnClick) {
+            commentWriteActivation(""off"");
+        }
+
+        return false;
+    }
+
+    function clickMyGradeAreaButton() {
+        var ratingObj = $(""div.movie_appraise"");
+        var className = ""open_score"";
+        if (ratingObj.hasClass(className)) {
+            ratingObj.removeClass(className);
+        } else {
+            ratingObj.addClass(className);
+        }
+    }
+
+
+
+    $(document).ready(function() {
+        if (typeof actUtil === undefined) {
+            $.getScript(""//t1.daumcdn.net/movie/cssjs/1565598206/common/new_utils.js"")
+            .done(function(script, textStatus) {
+                //
+            })
+            .fail(function(jqxhr, settings, exception) {
+                console.error(""new_utils.js file load error!"");
+            });
+        }
+
+        EVALUATION_MODULE.keepStarsNum($(""#rating_ranking_grade .bg_star""));
+        var ratingParentEmt = $(""#wrap_impression"");
+        var isOkToCommentSubmit = true;
+
+        if (window.ua_result.platform == 'mobile') {
+            EVALUATION_MODULE.setEventsOnMobile($(""#rating_ranking_grade""));
+        }
+
+        var textAreaEmt = ratingParentEmt.find(""textarea"");
+        //focusRatingCommentArea(textAreaEmt);
+
+        // 감상평 있으면 디폴트로 보이게 하기
+        if (!true) {
+            commentWriteActivation(""on"");
+
+            var strCount = getKoreanByteCount(textAreaEmt.val());
+            $(""#tfEval_byteinfo"").eq(0).html(Math.round(strCount));
+        }
+
+        // 코멘트 등록하기
+        $(""#writeCommentArea"").find(""button.btn_submit"").click(function() {
+            var parentEmt = $(this).parents("".wrap_impression"");
+            actUtil.loginCheckThenAction(function() {
+
+                //var myGrade = ratingParentEmt.find(""option:selected"").val();
+                var myGrade = parentEmt.find(""input.fixed_score"").eq(0).val();
+                if(myGrade == -1) {
+                    alert(""점수를 선택해주세요."");
+                    return false;
+                }
+
+                if(!isOkToCommentSubmit) {
+                    alert(""평점 등록중입니다. 잠시만 기다려주세요."");
+                    return false;
+                }
+
+                var comment = $(""#tfEval"").val();
+                var myGrade = -1;
+                if (!comment.match(/\S/)) {
+                    alert(""감상평을 적어주세요."");
+                    parentEmt.find(""textarea"").focus();
+                    return false;
+                }
+
+                $(""#myRatingForm"").find(""input[name='rating']"").val(parentEmt.find("".fixed_score"").val());
+
+                ratingMovieGrade(myGrade, comment, function(data) {
+                    $.cookie('moviecomment_position', $(window).scrollTop(),
+                            {path: '/', domain: 'movie.daum.net', expires: 1});
+                    location.reload(true);
+                });
+            });
+            if (location.pathname.startsWith(""/indie"")) {
+                movietools.tiara.send(""indie"", ""point_text"", {pname: tiaraPageName});
+            } else {
+                movietools.tiara.send(""moviedb"", ""grade mygrade register"");
+            }
+        });
+
+        // 코멘트 수정하기
+        $(""#showMyComment"").find(""a.link_edit"").click(function() {
+            $(""div.movie_myrate"").addClass(""write_open"");
+            $(""#writeCommentArea"").show();
+            var comment = $(""#tfEval"").val();
+            $(""#tfEval"").focus().val("""").val(comment + """");
+            $(""#showMyComment"").hide();
+            movietools.tiara.send(""moviedb"", ""grade mygrade edit"");
+        });
+
+        //new UI.ByteChecker(""tfEval"", 400, ""감상평은 400자까지만 입력됩니다. 초과된 부분은 자동 삭제됩니다."", function() {});
+        new UI.ByteChecker(""tfEval"", 400, null, function() {
+            // nothing..
+        }, function() { // afterSliceFunction 문자열이 정해놓은 len 이상으로 길어져 잘렸을 경우에 실행하는 함수
+            $(""#writeCommentArea"").find(""span.num_byte"").addClass(""max"");
+        }, function() { // inRangeFunction 문자열이 정해놓은 len 범위안에서 유지될 경우에 실행하는 함수
+            $(""#writeCommentArea"").find(""span.num_byte"").removeClass(""max"");
+        }, function() {
+            var targetElement = $(""div.impression_write"");
+            var activeClassName = ""write_on"";
+
+            if ($(""#tfEval"").val().length > 0) {
+                commentWriteActivation(""on"");
+            } else {
+                if ($(""input[name='emItemId']"").val() == ""NONE"" && !ratingValues.isWriteOnClick) {
+                    commentWriteActivation(""off"");
+                }
+            }
+
+            // textarea height 값 resize
+                            textareaResize(true);
+                    });
+
+        // 코멘트 textarea 에 focus 하면 로그인 안됐을때 띄우기
+        /*
+        $(""#writeCommentArea"").find(""textarea"").click(function() {
+            //$(""#writeCommentArea"").addClass(""on"");
+            actUtil.loginCheckThenAction(function() {});
+        });
+        */
+
+        // 코멘트 쓸 때 write_on 클래스 넣기
+        $(""#tfEval"").bind(""click"", function(event) {
+            if (!ratingValues.isWriteOnClick) {
+                commentWriteActivation(""on"");
+                var comment = $(""#tfEval"").val();
+                $(""#tfEval"").focus().val("""").val(comment + """");
+                $(""#tfEval"").scrollTop($(""#tfEval"").prop(""scrollHeight""));
+                ratingValues.isWriteOnClick = true;
+            } else {
+                $(""#tfEval"").focus();
+            }
+        });
+
+        var movieCommentPositionFromCookie = $.cookie('moviecomment_position');
+        if (movieCommentPositionFromCookie && !isNaN(movieCommentPositionFromCookie)) {
+            $.cookie('moviecomment_position', null, {path: '/', domain: 'movie.daum.net'});
+            window.setTimeout(function() {
+                $(window).scrollTop(movieCommentPositionFromCookie);
+            }, 500);
+        }
+
+        // 독립영화관 수정으로 새로 적용된 script
+        $(""#spanCommentArea"").click(function() {
+            actUtil.loginCheckThenAction(function() {
+                openCommentArea();
+            });
+        });
+
+        if (!true) {
+            $(""#divContWrite"").addClass(""write_on"");
+            ratingValues.isMobileWriteOnClick = true;
+        }
+        // 독립영화관 수정으로 새로 적용된 script
+    });
+
+    function openCommentArea() {
+        $(""#divContWrite"").addClass(""write_on"");
+        commentWriteActivation(""on"");
+        ratingValues.isMobileWriteOnClick = true;
+        if (location.pathname.startsWith(""/indie"")) {
+            movietools.tiara.send(""indie"", ""point_open"", {pname: tiaraPageName});
+        }
+    }
+
+    // 변수들
+    var ratingValues = {
+        isMobileWriteOnClick: false, // 모바일에서 글쓰기 버튼을 눌렀는지
+        isWriteOnClick: false
+    };
+
+    // 모바일에서 평점쓰기 눌렀을 때
+    /*
+    function commentWriteOn() {
+        actUtil.loginCheckThenAction(function() {
+            commentWriteActivation(""on"");
+            ratingValues.isMobileWriteOnClick = true;
+        });
+    }
+    */
+
+    function textareaResize(isOn) {
+        var textareaTfEval = $(""#tfEval"");
+        textareaTfEval.css(""height"", ""auto"");
+        if (isOn) {
+            textareaTfEval.height(textareaTfEval.prop(""scrollHeight""));
+        }
+    }
+
+    // 코멘트를 쓸 준비하기 : action 이 ""on"" 이면 쓸수있는 작업을 함
+    function commentWriteActivation(action) {
+        var targetElement = $(""div.impression_write"");
+        var activeClassName = ""write_on"";
+
+        if (action === ""on"") {
+            if (targetElement.attr(""class"").indexOf(activeClassName) < 0) {
+                targetElement.addClass(activeClassName);
+
+                // textarea height 값 resize
+                                    textareaResize(true);
+                            }
+        } else {
+            targetElement.removeClass(activeClassName);
+
+            // textarea height 값 resize
+                            textareaResize(false);
+                    }
+    }
+
+    // 평점 남기기
+    function ratingMovieGrade(grade, comment, callback, failCallback) {
+
+        actUtil.loginCheckThenAction(function() {
+            if(grade == -1 && comment == """") {
+                return false;
+            }
+
+            if(grade != -1) {
+                $(""#myRatingForm"").find(""input[name='rating']"").val(grade);
+            }
+
+            if(comment != """") {
+                $(""#myRatingForm"").find(""input[name='comment']"").val(comment);
+            }
+
+            var apiUrl = ""/data/movie/rating/insert/movie/grade.json"";
+            var params = $(""#myRatingForm"").serialize();
+
+            // daum_head.vm 에 정의되어있음
+            CommentRxSubject.onNext({
+                ajaxCall: {
+                    method: ""GET"",
+                    url: apiUrl,
+                    data: params
+                },
+                callback: function(response) {
+                    var data = response.data;
+                    var paramsObj = response.params;
+
+                    if(data != null && data.isSuccess == true) {
+                        if(callback != null) {
+                            callback(data);
+                        }
+                    } else {
+                        if (paramsObj && paramsObj.validatedMsg) {
+                            alert(paramsObj.validatedMsg);
+                        } else {
+                            alert(""평점 등록에 실패했습니다."");
+                        }
+                        if (failCallback) {
+                            failCallback();
+                        }
+                    }
+                    isOkToCommentSubmit = true;
+                },
+                failCallback: function() {
+                    alert(""평점 등록에 실패했습니다."");
+                    if (failCallback) {
+                        failCallback();
+                    }
+                }
+            });
+        });
+    }
+
+    function focusOnCommentArea(clickedElement) {
+        actUtil.loginCheckThenAction(function() {
+            clickedElement.parents('.wrap_impression').addClass('appraise_on');
+            clickedElement.parents('.wrap_impression').find(""textarea"").focus();
+            $(""#writeCommentArea .view_emot_detail"").remove();
+        });
+    }
+
+    function switchEditMode(clickedElement) {
+        clickedElement.parents('.wrap_impression').removeClass('aview_on');
+        focusOnCommentArea(clickedElement);
+    }
+
+			영화 평점 탭
+
+            
+            
+                
+                
+                
+
+                					
+                    
+                        
+                            네티즌 평점(2,354)
+                            
+                                								평점
+                                8
+                                .
+                                0
+                            
+                        
+                    
+                    
+                
+									
+					    
+        평점 및 감상평 등록폼
+        
+            
+                
+                    평점입력
+                    
+
+                                                
+                        0점
+                        
+                    
+                        
+                            평점
+                                                        
+                            0
+                            .
+                            0
+                            점
+                            
+                            (취소)0점1점2점3점4점5점6점7점8점9점10점
+                        등록완료!
+                    
+                
+
+                
+                    
+                        
+
+                    
+                        
+                            
+                                이모티콘 제거
+                            
+
+                            
+                                영화를 어떻게 보셨나요?
+                                
+                            
+                            
+                        
+
+                        
+                            
+                                이모티콘
+                            
+                            
+                            
+                        
+
+                                                
+                        
+                            
+                                    현재 입력 바이트
+                                    0
+                                    /입력 가능 바이트400
+                            등록
+                        
+                    
+                
+            
+        
+     
+				
+			
+				
+				평점
+				네티즌 평점
+				
+																			 
+								
+																			                                        
+                                                                                    yagult
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            10/10
+                                        
+                                                                                 
+                                            지루할틈없이 빵빵 터지는 대사에클라이밍의 새로운 매력재난상황에서의 어마어마한 구조력위기상황에서의 인간미 피칠갑하지 않아도 긴장감 엄청났습니다. ^^연기파 배우들 짱초반에 윤아님이 비상벨 울려주실때 심쿵!정의감 넘치고 비장했어요 ㅠㅜ킬링타임 목적에 부합한 적절한 연출력!
+                                        
+									
+									
+										
+																							2019.08.16, 10:43
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    이평론가
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            4/10
+                                        
+                                                                                 
+                                            평점에 속아서 본 영화 중 하나집에서 봤다면 중간에 끄고 안 봤을 영화그냥 킬링타임용 
+                                        
+									
+									
+										
+																							2019.08.16, 10:05
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    제네시스
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            8/10
+                                        
+                                                                                 
+                                            조금더 긴 스토리였으면 하는 아쉬움 뿐 아주 좋았습니다
+                                        
+									
+									
+										
+																							2019.08.16, 09:41
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    쿨가이
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            8/10
+                                        
+                                                                                 
+                                            드라마를 안 봐서 윤아 연기하는거 처음 봤는데 괜찮더군요.
+                                        
+									
+									
+										
+																							2019.08.16, 09:16
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    wrimm
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            10/10
+                                        
+                                                                                 
+                                            
+                                        
+									
+									
+										
+																							2019.08.16, 06:05
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    김남우
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            10/10
+                                        
+                                                                                 
+                                            
+                                        
+									
+									
+										
+																							2019.08.16, 02:23
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    삶은연어
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            9/10
+                                        
+                                                                                 
+                                            그냥 재미있음!지루할 틈과 시간 없음.
+                                        
+									
+									
+										
+																							2019.08.16, 01:41
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    세미뇰
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            10/10
+                                        
+                                                                                 
+                                            클라이밍에서 두 배우의 힘이 느껴져서 실감 났다. 기대 안하고 갔다가 긴장감 느끼며 봤음.군더더기 없이 깔끔했던 영화. 초6아이랑 봤는데 잔인한것도 없었고 아이도 나도 엄청 집중해서 봤음.
+									
+									
+										
+																							2019.08.16, 01:05
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    실프
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            9/10
+                                        
+                                                                                 
+                                            
+                                        
+									
+									
+										
+																							2019.08.16, 00:58
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+													 
+								
+																			                                        
+                                                                                    Garo
+                                        
+									
+									                                        
+                                                                                        평점 
+                                            9/10
+                                        
+                                                                                 
+                                            이야 오늘부터 조정석팬됨윤아는 망가져도 이쁘네
+                                        
+									
+									
+										
+																							2019.08.16, 00:41
+																					
+										
+																					신고하기
+																			
+																			삭제
+																	
+							
+												
+					
+		
+		
+						
+																		
+															현재페이지1
+																				2
+																				3
+																				4
+																				5
+														
+						    		다음 페이지
+		    			    	
+						
+		
+	
+
+				
+			
+
+	
+		            
+            
+                
+                
+            
+        
+	
+	
+
+
+
+var is_not_show_admin_banner_list = [""/moviedb/main"", ""/tv/main"", ""/person/main"", ""/filmfest/main"", ""/magazine/news/article""];
+var this_request_uri = ""/moviedb/grade"";
+
+	var is_preview_banner = false;
+
+
+$(document).ready(function() {
+	        var isPc = false;
+		if(isPc) { // PC 크기에서만 로딩하기
+		document.domain = 'daum.net';
+        var iframeHTML  = '<ins class=""daum_ddn_area"" style=""display:block"" data-ad-frame-id = ""AMS_250exp"" data-ad-frame-name = ""AMS_250exp"" data-ad-unit = ""03L13"" data-ad-type = ""D"" data-ad-width = ""250"" data-ad-height = ""250""></ins>'
+						+ '<script async type=""text/javascript"" src=""//t1.daumcdn.net/adfit/static/ad.min.js""><\/script>';
+		$(""#EXTENSIBLE_WING_WRAP"").append(iframeHTML);
+	} else {
+		$(""#EXTENSIBLE_WING_WRAP"").append('<a href=""https://story.kakao.com/ch/moviekakao""><img src=""//t1.daumcdn.net/movie/c90e7313496df0d7d4a5bf65d8d5289c9d964cd8"" width=""250"" height=""250""></a>');
+	}
+	
+	$.ajax({
+		url: ""/api/snippet/banner.json?&""
+	}).done(function(data) {
+		var divBnr = $('#siBnrImage');
+		var today = new Date();
+		// GNB 영역의 사이드 배너 삽입
+		if(divBnr) {
+			var bnr = data.side, startAt = new Date(bnr.bnrStartAt), endAt = new Date(bnr.bnrEndAt);
+			if(today > startAt && today < endAt || today > startAt && !bnr.bnrEndAt) {
+				var a = document.createElement(""a""), img = document.createElement(""img"");
+				a.appendChild(img);
+				a.className = 'link_gnbbnr #banner'; a.href = bnr.pcLanding;
+				img.className = 'thumb_bnr'; img.src = removeUrlScheme(bnr.siBnrImage), img.alt = bnr.bnrImageAlt;
+				divBnr.append(a);
+			}
+		}
+		// 354 배너 페이지에 따라 노출 제어
+		if (is_not_show_admin_banner_list.indexOf(this_request_uri) < 0) {
+			divBnr = $('#pcBnrImage');
+			if(divBnr) {
+				if(data.common.length && data.common.length > 0) {
+					var bnr = _.sample(_.filter(data.common, function(cbnr) {
+						if(!cbnr.bnrStartAt)
+							return false;
+						var sDate = new Date(cbnr.bnrStartAt), eDate = new Date(cbnr.bnrEndAt);
+						return (today > sDate && today < eDate) || (today > sDate && !cbnr.bnrEndAt)
+					}));
+				} else {
+					var bnr = data.common;
+				}
+				if(!bnr)
+					return 1;
+				var startAt = new Date(bnr.bnrStartAt), endAt = new Date(bnr.bnrEndAt);
+				if(is_preview_banner || ((today > startAt && today < endAt) || (today > startAt && !bnr.bnrEndAt))) {
+					// PC 배너
+					a = document.createElement(""a""), img = document.createElement(""img"");
+					a.appendChild(img);
+					a.className = 'link_bnr bnr_354 #banner #pc'; a.href = bnr.pcLanding;
+					img.width = 250; img.height = 292; img.src = removeUrlScheme(bnr.pcBnrImage); img.alt = bnr.bnrImageAlt
+					divBnr.append(a);
+					
+					// 모바일 하단 배너
+					if(location.pathname == '/main/new') {
+						a = document.createElement(""a""), img = document.createElement(""img"");
+						a.appendChild(img);
+						a.className = 'link_bnr #banner #mobile'; a.style.background = bnr.moBnrBg, a.href = bnr.moLanding;
+						img.width = 320; img.className = 'img_bnr', img.src = removeUrlScheme(bnr.moBnrImage); img.alt = bnr.bnrImageAlt
+						document.getElementById('mBottomBnr').appendChild(a);
+					}
+				}
+			}
+		} else {
+			$(""#pcBnrImage"").hide();
+		}
+	});
+});
+
+
+	
+
+
+
+
+	// 타입별로 페이지 전환하기
+	function showGrade(type) {
+		var url = ""/moviedb/grade?movieId=121137&type="" + type;
+		location.href = url;
+		movietools.tiara.send(""moviedb"", ""grade "" + type + "" tab"");
+	}
+
+			Kakao.Emoticon.update('kakao_emoticon');
+	
+	$(document).ready(function() {
+		var gradePageLoadedEmt = $(""#gradePageLoaded"");
+		if (gradePageLoadedEmt && gradePageLoadedEmt.val() == ""false"") {
+			gradePageLoadedEmt.val(""true"");
+		} else {
+			$.cookie('moviecomment_position', $(window).scrollTop(),
+						{path: '/', domain: 'movie.daum.net', expires: 1});
+			location.reload(true);
+		}
+    });
+
+		
+			
+				공지
+			
+		
+	
+    
+    
+        
+            
+                
+                    이슈검색어
+                    
+                    
+                            실시간이슈
+                        
+                        
+                            뉴스
+                        
+                        
+                            연예
+                        
+                        
+                            스포츠
+                        
+                    
+                실시간이슈
+                
+                
+                
+            
+        
+        
+            <ul class=""list_issue"">
+                <% _.each(words, function(word) { %>
+                    <li>
+                        <a class=""link_issue"" href=""https://m.search.daum.net/search?w=tot&q=<%- word.utf8Keyword %>"" tabindex=""-1"">
+                            <em class=""num_issue txt_num<%- word.rank %>""><%- word.rank %></em>
+                            <span class=""screen_out""><%- word.rank %>위</span>
+                            <span class=""txt_issue""><%- word.keyword %></span>
+                        </a>
+                    </li>
+                <% }); %>
+            </ul>
+        
+            
+                
+                        영화
+                    
+                    
+                        연예
+                    
+                주요메뉴 바로가기 링크
+                
+                
+            
+        
+        
+            <ul class=""list_link"">
+                <% _.each(links, function(link) { %>
+                    <li>
+                        <a class=""link_menu"" href=""<%- link.link %>"" tabindex=""-1""><%- link.title %></a>
+                    </li>
+                <% }); %>
+            </ul>
+        
+    
+
+	
+		
+			
+				<div class=""item_bundle"">
+					<% for(var i = 0; i < genres.length; i++) { %>
+                    	<span class=""txt_item"">
+							<a href=""/search/main?returnUrl=<%=encodeURIComponent(location.href)%>&searchText=<%=encodeURIComponent('{장르} ' + genres[i].genreName)%>""
+												  class=""link_txt #footer #genre @<%=(startIndex+1+i)%>""><%=genres[i].genreName%></a>
+						</span>
+					<% } %>
+				</div>
+			
+				장르별
+				
+
+				
+			
+			서비스 이용정보
+			
+				게시판 운영원칙  <U+30FB> 
+				서비스 약관/정책  <U+30FB> 
+				비즈니스  <U+30FB> 
+				권리침해신고  <U+30FB> 
+				다음영화 고객센터
+			
+			
+				위 내용에 대한 저작권 및 법적 책임은 자료제공사 또는 글쓴이에 있으며, Kakao의 입장과 다를 수 있습니다.
+				Copyright ⓒ Kakao Corp. All rights reserved.
+			
+		
+	
+	
+        
+        
+                Daum
+            
+            
+            
+			
+            
+            
+                전체보기
+            
+        
+		
+			편집원칙 <U+30FB> 기사배열책임자 : 손정아 <U+30FB> 청소년보호책임자 : 권대열 
+            ⓒ Kakao Corp.
+        
+        
+	
+	
+	
+	
+	
+
+
+
+	
+	
+	
+	
+ 
+
+
+
+	$(document).ready(function() {
+		var slotid = """";
+		var filler, da;
+		var addMobileAdScript = function() {
+			if (!$(""#adScript"").is(':empty')) {
+				return;
+			}
+			slotid = ""0Qb72"";
+			var adStript = $(""<script/>"", {
+				type: ""text/javascript"",
+				charset: ""utf-8"",
+				src: ""//t1.daumcdn.net/adfit/static/ad.min.js""
+			});
+			$(""#adScript"").html(adStript);
+		}
+		if($(window).width() < limitWidthOfMobile) {
+           	addMobileAdScript();
+        } else {
+			resize.executeWhenWindowResize(function() {
+                if($(window).width() < limitWidthOfMobile) {
+					addMobileAdScript();
+                }
+            });
+		}
+
+				$('.dimmed_trslayer').on('touchmove click', function() {
+			if ($(""#dkmHead"").hasClass(""mside_on"")) {
+				closeMenu();
+			}
+		});
+	});
+	
+
+
+
+<div id=""<%= id %>"" class=""movie_layer"" style=""margin-bottom:70px"" data-layer-link=""<%= encodeURIComponent(link) %>"">
+	<div class=""inner_notice_layer inner_notice_image"">
+		<div class=""layer_head"">
+			<strong class=""screen_out"">공지사항 레이어</strong>
+		</div>
+		<div class=""layer_body"" tabindex=""<%= tabIndex %>"">
+			<a href=""<%= link %>"" class=""link_detail #click"">
+				<strong class=""ir_pm""><%- text %></strong>
+				<img src=""<%= image %>"" class=""img_notice"" alt=""<%- text %>"">
+			</a>
+		</div>
+		<div class=""layer_foot"">
+			<span class=""area_check""><!-- 체크시 'on'클래스 추가 -->
+				<input type=""checkbox"" id=""hiddenCheck<%= id %>"" class=""inp_check"">
+				<label for=""hiddenCheck"" class=""lab_check"" tabindex=""<%= tabIndex + 1 %>"">
+					<span class=""ico_popcorn"" data-layer-id=""<%= id %>""></span>
+					1일간 보지 않기
+				</label>
+			</span>
+			<button type=""button"" class=""btn_close ico_popcorn #close"" data-layer-id=""<%= id %>"" tabindex=""<%= tabIndex + 2 %>"">닫기</button>
+		</div>
+	</div>
+</div>
+
+<div id=""<%= id %>"" class=""movie_layer"" style=""margin-bottom:70px"" data-layer-link=""<%= encodeURIComponent(link) %>""><!-- 임시 위치값  -->
+	<div class=""inner_notice_layer"">
+		<div class=""layer_head"">
+			<strong class=""screen_out"">공지사항 레이어</strong>
+		</div>
+		<div class=""layer_body"" tabindex=""<%= tabIndex %>"">
+			<p class=""txt_infomovie""><%- text %><span class=""txt_date""><%- txtDate %></span></p>
+			<a href=""<%= link %>"" class=""link_notice #click"">자세히 보기</a>
+		</div>
+		<div class=""layer_foot"">
+			<span class=""area_check""><!-- 체크시 'on'클래스 추가 -->
+				<input type=""checkbox"" id=""hiddenCheck"" class=""inp_check"">
+				<label for=""hiddenCheck"" class=""lab_check"" tabindex=""<%= tabIndex + 1 %>"">
+					<span class=""ico_popcorn"" data-layer-id=""<%= id %>""></span>
+					1일간 보지 않기
+				</label>
+			</span>
+			<button type=""button"" class=""btn_close ico_popcorn #close"" data-layer-id=""<%= id %>"" tabindex=""<%= tabIndex + 2 %>"">닫기</button>
+		</div>
+	</div>
+</div>
+
+
+var MoviePopLayerController = {
+	queryVal : function(key) {
+		var val = location.search.split(key + ""="") || [];
+		return val && val.length > 1 ? val[1].split(""&"")[0] : """";
+	},
+	isPopupTargetPage : function(targets) {
+		var pages = JSON.parse(targets), section, target;
+		for(var i = 0; i < pages.length; i++) {
+			section = pages[i].section;
+			target = pages[i].target;
+			if(section == 'home' && location.pathname == '/main/new') {
+				return true;
+			} else if(section == 'magazine' && location.pathname == '/magazine/new') {
+				return true;
+			} else if(section == 'movie' && location.pathname == '/moviedb/main' && target == MoviePopLayerController.queryVal('movieId')) {
+				return true;
+			} else if(section == 'person' && location.pathname == '/person/main' && target == MoviePopLayerController.queryVal('personId')) {
+				return true;
+			} else if(section == 'tv' && location.pathname == '/tv/main' && target == MoviePopLayerController.queryVal('tvProgramId')) {
+				return true;
+			} else {
+				continue;
+			}
+		}
+		return false;
+	}
+}
+
+	var is_preview_pop = false;
+
+$.ajax({
+  url: ""/api/snippet/layer.json?&""
+  //cache: false
+  
+}).done(function(result) {
+	var image_tmpl = _.template($('#image-poplayer-tmpl').html());
+	var text_tmpl = _.template($('#text-poplayer-tmpl').html());
+        
+	if(result.data) {
+		var pops = result.data;
+		if(pops && pops.length && pops.length > 0) {
+			var notiLayer = $('#notiPopupLayer');
+			for(var i = 0; i < pops.length; i++) {
+				pops[i].tabIndex = i * 3 + 1;
+				var pop = pops[i];
+				if(!pop.link) 
+					continue;
+				if($.cookie('popcorn_' + encodeURIComponent(pop.link))) { 
+					continue;
+				} else {
+					if(MoviePopLayerController.isPopupTargetPage(pop.popPages)) {
+						pop.id = 'popLayerId' + i;
+						var today = new Date(), startAt = new Date(pop.startAt), endAt = new Date(pop.endAt);
+						//if(today > endAt || today < startAt) continue;
+						//if(today > startAt && today < endAt || today > startAt && !pop.endAt) {
+						if(is_preview_pop || (today > startAt && today < endAt)) {
+							if(pop.image && pop.image != '') 
+								notiLayer.append(image_tmpl(pops[i]));
+							else if(pop.text && pop.text != '') 
+								notiLayer.append(text_tmpl(pops[i]));
+							else
+								;
+						}
+					}
+				}
+			}
+			if(notiLayer.children().length > 0) {
+				$('.dimmed').css('display', 'block');
+				if(location.href.indexOf('#dkWrap') < 0) location.href = location.href + '#dkWrap';
+				else location.href = location.href;
+			}
+			/* 마크업 변경 가능성 있음으로 주석 처리
+			notiLayer.find('.btn_close').on('click', function(ev) {
+				$('#'+ev.target.getAttribute('data-layer-id')).remove();
+				if(notiLayer.children().length < 1) 
+					$('.dimmed').css('display', 'none');
+			});
+			*/
+			notiLayer.find('.btn_close.ico_popcorn').on('click', function(ev) {
+				$('#'+ev.target.getAttribute('data-layer-id')).remove();
+				if(notiLayer.children().length < 1) 
+					$('.dimmed').css('display', 'none');
+				//movietools.tiara.send('movie', 'home layer img', {cno: '1-1', img:'http://img1.daumcdn.net/thumb/C186x268/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F697db6e5c1a3fa165d807c381498c80fcca0ab66'});
+				//movietools.tiara.sendEventLog(['button', 'newsbox', 'prev_next', 'prev']);
+				
+			});
+			notiLayer.find('.lab_check').on('click', function(ev) {
+				var $pop = $('#'+ev.target.getAttribute('data-layer-id'));
+				$pop.remove();
+				if(notiLayer.children().length < 1) 
+					$('.dimmed').css('display', 'none');
+				$.cookie('popcorn_' + $pop.attr('data-layer-link'), true, { expires: 1, path: '/', domain: location.hostname });
+			});
+			
+		}
+	}
+});
+
+    var deviceMode = 'unknown';
+
+    var SOCIALSHARE_PORTAL =  (function() {
+        var KAKAO_APP_KEY = '53e566aa17534bc816eb1b5d8f7415ee'; //카카오링크 다음앱 배포버전 key
+        var DEFAULT_IMG = 'http://t1.daumcdn.net/movie/common/og_default.png';
+
+        var nativeSocialShare = null;
+        var socialShareOpt = {};
+        var kakaoLinkData = {};
+
+        return {
+            create: function(hEl, mEl, isNarrow, isLayer, imgUrl, title, desc, link, popupPositionFunc) {
+                imgUrl = this.getImgUrl(imgUrl);
+
+                title = title || $('meta[property=""og:title""]').attr('content') || '다음영화 공유';
+                desc = desc || $('meta[property=""og:description""]').attr('content') || '';
+                link = link || this.getLocationHref() || 'http://movie.daum.net';
+
+                kakaoLinkData = {
+                    shareType : 'sendCustom',
+                    shareData : {
+                        templateId: 6928,
+                        installTalk: true,
+                        templateArgs: {
+                            '${title}': title,
+                            '${description}': desc,
+                            '${imageUrl}': imgUrl,
+                            '${webUrl}': link,
+                            '${mobileWebUrl}': link,
+                            '${EncodingUrl}': encodeURIComponent(link)
+                        }
+                    }
+                };
+
+                socialShareOpt = {
+                    isNarrow: isNarrow,
+                    isLayer: isLayer,
+                    moreViewContainer: mEl,
+                    link: link,
+                    prefix: title,
+                    service_name: '다음영화',
+                    kakaoAPI: {
+                        appkey: KAKAO_APP_KEY,
+                        kakaoLinkData : kakaoLinkData
+                    }
+                };
+                if (popupPositionFunc) {
+                    socialShareOpt.popupPositonFunction = popupPositionFunc;
+                }
+
+                nativeSocialShare = new socialshareRenewal.Main(hEl, socialShareOpt);
+            },
+            updateLinkWithLocationHref: function(){
+                this.updateLink(this.getLocationHref());
+            },
+            getLocationHref: function(){
+                // 개발서버의 경우 실서버 기준으로 url을 수정해줌
+                // 이는 외부 공유시 SNS(eg. 톡, 스토리)에서 해당 url접근이 가능해야 테스트를 할 수 있기 때문
+                return window.location.href.replace(window.location.origin, 'http://movie.daum.net');
+            },
+            updateLink: function(link) {
+                if (nativeSocialShare) {
+                    kakaoLinkData.shareData.templateArgs['${webUrl}'] = link;
+                    kakaoLinkData.shareData.templateArgs['${mobileWebUrl}'] = link;
+                    kakaoLinkData.shareData.templateArgs['${EncodingUrl}'] = encodeURIComponent(link);
+
+                    socialShareOpt.link = link;
+                    nativeSocialShare.updateContext(socialShareOpt);
+                }
+            },
+            updateImgUrl: function(imgUrl) {
+                kakaoLinkData.shareData.templateArgs['${imageUrl}'] = this.getImgUrl(imgUrl);
+            },
+            getImgUrl: function(originImgUrl) {
+                var thumbPrefix = 'http://img1.daumcdn.net/thumb/S400x209/?fname=';
+                var imgUrl = originImgUrl || $('meta[property=""og:image""]').attr('content') || DEFAULT_IMG;
+
+                if(imgUrl.indexOf('//img1.daumcdn.net/thumb/') == -1) {
+                    imgUrl = thumbPrefix + encodeURIComponent(imgUrl);
+                } else {
+                    var splitUrl = imgUrl.split('fname=');
+                    if (splitUrl.length == 2) {
+                        imgUrl = thumbPrefix + splitUrl[1];
+                    }
+                }
+
+                return imgUrl;
+            }
+        };
+    })();
+
+$.ajax(""/api/snippet/gnb.json"").done(function(response) {
+    var data = response.data;
+    if (data) {
+		var templateEmt = $(""#gnbCustomBtnTemplate"");
+		if (!templateEmt || templateEmt.length == 0) {
+			return;
+		}
+		var template = _.template(templateEmt.html());
+		templateEmt.before(template(data));
+		templateEmt.remove();
+	}
+});
+
+
+    $(document).ready(function() {
+		var snsImgUrl = null;
+		var snsContentTitle = null;
+				
+        SOCIALSHARE_PORTAL.create($('#socialShareInFixedHeader')[0], $('#socialShareMoreContainer')[0], true, false, snsImgUrl, snsContentTitle);
+
+        // tmp
+		$('.sns_comm').addClass('view_share');
+	});
+
+var MOVIE_FOOT_VIEWABLE = {
+	sendFootViewEventLog: function() {
+		if($('#dkFoot, #dkmFoot').visible(true, false, 'vertical')) {
+			var paths = location.pathname.split('/');
+	    	_tiq.push(['__trackEvent', 'foot', paths[1], paths[2]]);
+	    	$(window).unbind('scroll', MOVIE_FOOT_VIEWABLE.sendFootViewEventLog);
+	    }
+    }
+}
+$(window).bind('scroll', MOVIE_FOOT_VIEWABLE.sendFootViewEventLog);
+
+	var bottomRankingArea = $(""#bottom_ranking_area"");
+	if (bottomRankingArea && bottomRankingArea.length > 0) {
+		function onOffBottomRankingCheckTitle(movieSection, personSection) {
+			movieSection = movieSection || $(""#bottom_ranking_movie_section"");
+			personSection = personSection || $(""#bottom_ranking_person_section"");
+
+			if (personSection.hasClass(""on"")) {
+				bottomRankingArea.find("".movie_rank_chk"").hide();
+				bottomRankingArea.find("".person_rank_chk"").show();
+			}
+			if (movieSection.hasClass(""on"")) {
+				bottomRankingArea.find("".movie_rank_chk"").show();
+				bottomRankingArea.find("".person_rank_chk"").hide();
+			}
+		}
+
+		function onClickBottomRankingTab(movieOn, personOn) {
+			var movieSection = $(""#bottom_ranking_movie_section"");
+			var personSection = $(""#bottom_ranking_person_section"");
+			movieSection.removeClass(""on"");
+			personSection.removeClass(""on"");
+
+			movieOn && movieSection.addClass(""on"");
+			personOn && personSection.addClass(""on"");
+
+			onOffBottomRankingCheckTitle(movieSection, personSection);
+			
+			movietools.tiara.send(splitPath[1] || 'movie', ""ranking tab "" + (movieOn ? ""movie"" : """") + (personOn ? ""person"" : """"));
+		}
+	}
+	$(document).ready(function() {
+		$("".gnb_comm li:not('.on') .link_gnb"")
+            .mouseenter(function() {
+                $(this).find("".inner_bar"").width(0).animate({
+                    width : $(this).width()
+                }, 300);
+            }).mouseleave(function() {
+                $(this).find("".inner_bar"").animate({
+                    width : 0
+                }, 300);
+            });
+		            SCROLL_COMMON.readyScroll(false);
+		
+		if (bottomRankingArea && bottomRankingArea.length > 0) {
+            var movieSource = Rx.Observable.defer(function() { return Rx.Observable.fromPromise(
+					$.ajax({url: ""/data/movie/movie_info/ticket_rank_no_mid.json?pageNo=1&pageSize=10""}));})
+					.map(function (result) {
+						var data = result ? result.data : null;
+						if (data && data.length > 0) {
+							var template = _.template($(""#popular-movie-template"").html());
+							var listElement = $(""#bottom_ranking_popular_ticket_movies"");
+							for (var index = 0; index < data.length; index++) {
+								var item = data[index];
+								listElement.append(template({
+									id: item.movieId,
+									title: item.titleKo,
+									rank: item.rank.ranking,
+									upDown: (item.rank.diff == ""UP"" || item.rank.diff == ""DOWN"") ? item.rank.diff.toLowerCase() : ""same"",
+									absRankChange: item.rank.absDiffRanking,
+									idx: index + 1
+								}));
+							}
+							return true;
+						}
+						return false;
+					})[""catch""](Rx.Observable.just(false));
+			var personSource = Rx.Observable.defer(function() { return Rx.Observable.fromPromise(
+					$.ajax({url: ""/data/ranking/person.json?dateKey=3&limit=10""}));})
+					.map(function (result) {
+						var list = result ? result.list : null;
+						if (list && list.length > 0) {
+							var template = _.template($(""#popular-person-template"").html());
+							var listElement = $(""#bottom_ranking_popular_people"");
+							for (var i = 0; i < list.length; i++) {
+								var item = list[i];
+								item[""upDown""] = ""same"";
+								if (item.rankChange > 0) {
+									item[""upDown""] = ""up"";
+								} else if (item.rankChange < 0) {
+									item[""upDown""] = ""down"";
+								}
+								item[""absRankGap""] = Math.abs(item.rankChange);
+								listElement.append(template(item));
+							}
+							return true;
+						}
+						return false;
+					})[""catch""](Rx.Observable.just(false));
+			Rx.Observable.zip(movieSource, personSource, function(movieSuccess, personSuccess) {
+				return {
+					movieSuccess: movieSuccess,
+					personSuccess: personSuccess
+				};
+            }).subscribe(function onNext(allSuccesses) {
+				var movieSuccess = allSuccesses.movieSuccess;
+                var personSuccess = allSuccesses.personSuccess;
+
+				var movieSection = $(""#bottom_ranking_movie_section"");
+                var personSection = $(""#bottom_ranking_person_section"");
+
+				if (movieSuccess && personSuccess) {
+                    bottomRankingArea.show();
+					onOffBottomRankingCheckTitle(movieSection, personSection, bottomRankingArea);
+                    return;
+				}
+				if (!movieSuccess && !personSuccess) {
+					return;
+				}
+
+				if (!movieSuccess) {
+					movieSection.hide();
+                    movieSection.removeClass(""on"")
+					personSection.find("".tit_hotperson"").addClass(""first_sgt"");
+                    personSection.find("".tit_hotperson"").removeClass(""second_sgt"");
+					personSection.addClass(""on"");
+				}
+				if (!personSuccess) {
+					personSection.hide();
+                    personSection.removeClass(""on"")
+					movieSection.addClass(""on"");
+				}
+				onOffBottomRankingCheckTitle(movieSection, personSection, bottomRankingArea);
+				bottomRankingArea.show();
+			});
+        }
+
+				setSuggestConfigureAll();
+	});
+
+	    	$(""#search_layer form input[name='returnUrl']"").val(location.href);
+		$(""#dkHead .wrap_searchbar form input[name='returnUrl']"").val(location.href);
+	
+	var requestURI = ""/moviedb/grade"";
+	var noticeRecentData = {pageNo: 1, pageSize: 1};
+	if (requestURI.startsWith(""/indie"")) {
+        noticeRecentData[""notiType""] = ""ind"";
+	}
+
+	$.ajax({
+		url: '/data/movie/notice/recent.json',
+		data: noticeRecentData,
+		success: function(result) {
+			if (result && result.data && result.data.length > 0) {
+				var noticeLink = ""/notice/detail?type=all&id="" + result.data[0].id;
+				var noticeTitle = result.data[0].title;
+			}
+
+			var noticeLinkElement = document.createElement('a');
+			noticeLinkElement.setAttribute('class', 'link_notice #footer #notice');
+			noticeLinkElement.setAttribute('href', noticeLink);
+			noticeLinkElement.innerHTML = noticeTitle;
+
+			$(""#cEtc .inner_notice .cont_notice .tit_notice"").removeAttr('style');
+			$(""#cEtc .inner_notice .cont_notice"").append(noticeLinkElement);
+		}
+	});
+
+	$.ajax({
+		url: ""/data/movie/code/genre.json"",
+		success: function(result) {
+			var data = result ? result.data : null;
+			if (data && data.length > 0) {
+				var validGenres = ['가족', '공포', '드라마', '로맨스/멜로', '뮤지컬', '미스터리',
+						'범죄', '스릴러', '시대극', '애니메이션', '액션', '어드벤처', '전쟁', '코미디', '판타지', 'SF'];
+				var result = _.filter(data, function(genre) {return _.contains(validGenres, genre.genreName);})
+							.sort(function(a, b){return validGenres.indexOf(a.genreName) - validGenres.indexOf(b.genreName);});
+
+				var template = _.template($(""#genreBundleTemplate"").html());
+				var rowNum = 4;
+				$(""#dkFoot .inner_foot .direct_link .tit_direct"").show();
+				for (var index = 0; index < result.length; index+=rowNum) {
+					$(""#dkFoot .inner_foot .direct_link .direct_bundle"").append(template({
+						genres: result.slice(index, Math.min(index + rowNum, result.length)),
+						startIndex: index
+					}));
+				}
+			}
+		}
+	});
+
+            function createRealtimeIssue() {
+            $.ajax({
+                url: ""/api/totalSearch/realtimeIssue.json"",
+                success: function(result) {
+                    var data = result ? result.data : null;
+                    if (!data && data.length == 0) {
+                        return;
+                    }
+
+                    var items = [];
+                    for (var i=0; i<data.length; i++) {
+                        var word = data[i].realtime.word;
+                        var words = [];
+                        words.push(word.splice(0, word.length/2));
+                        words.push(word);
+
+                        items.push({
+                            data : { words: words, index:i},
+                            toHTML : function() {
+                                var template = _.template($('#footer-realtime-issue-tmpl').html());
+                                return template({words : this.data.words[0]}) + template({words : this.data.words[1]});
+                            }
+                        });
+                    }
+
+                    $('#mediaRealtimeIssueSection').css('display', 'block');
+                    var ds = new slide.InfiniteDataSource(items);
+                    var sl = new slide.Slide($('#mediaRealtimeIssueList').get(0), ds, {
+                        panelsToShow  : 1,
+                        panelsToSlide : 1,
+                        duration:800,
+                        disableOverflow:true
+                    });
+
+                    var setMenu = function(index) {
+                        $('#mediaRealtimeIssueMenu').children('.on').removeClass('on');
+                        $('#mediaRealtimeIssueMenu').children().eq(index).addClass('on');
+					}
+
+                    var changeSlide = function(event){
+                        ds.queryCurrent().then(function(current){
+                            setMenu(current.data.index);
+                        });
+                    };
+                    sl.on(""prev"", changeSlide);
+                    sl.on(""next"", changeSlide);
+
+                    $('#mediaRealtimeIssueMenu a').on('click', function(){
+                        var page = $(this).attr('idx')*1;
+                        ds.setIndex(page);
+                        sl.refresh();
+                        setMenu(page);
+					})
+                }
+            });
+        }
+
+        function createMediaDirectLink() {
+            var data = [
+                [
+                    {'title' : '영화 홈', 'link' : '/main/new'},
+                    {'title' : '현재상영', 'link' : '/premovie/released'},
+                    {'title' : '개봉예정', 'link' : '/premovie/scheduled'},
+                    {'title' : '박스오피스', 'link' : '/boxoffice/weekly'},
+                    {'title' : '빠른예매', 'link' : 'https://ticket2.movie.daum.net/Movie/MovieMain.aspx'},
+                    {'title' : '예고편', 'link' : '/trailer'},
+                    {'title' : '독립영화', 'link' : '/indie/main'},
+                    {'title' : '뉴스', 'link' : '/magazine/movienews'},
+                    {'title' : '매거진', 'link' : '/magazine/new'}
+                ],
+                [
+                    {'title' : '연예 홈', 'link' : 'http://m.media.daum.net/m/entertain'},
+                    {'title' : '최신 뉴스', 'link' : 'http://m.media.daum.net/m/entertain/news'},
+                    {'title' : '연재', 'link' : 'http://m.media.daum.net/m/entertain/news/series'},
+                    {'title' : '스타톡', 'link' : 'http://m.media.daum.net/m/entertain/star'},
+                    {'title' : '팬매거진', 'link' : 'http://m.media.daum.net/m/entertain/fan'},
+                    {'title' : 'TV', 'link' : 'http://m.media.daum.net/m/entertain/tv'},
+                    {'title' : '뮤직', 'link' : 'http://m.media.daum.net/m/entertain/music'},
+                    {'title' : '포토', 'link' : 'http://m.media.daum.net/m/entertain/photo'},
+                    {'title' : '투표', 'link' : 'http://m.media.daum.net/m/entertain/poll'}
+                ]
+            ]
+            var items = [];
+            for (var i=0; i<data.length; i++) {
+                items.push({
+                    data : {links : data[i], index:i},
+                    toHTML : function() {
+                        var template = _.template($('#footer-direct-link-tmpl').html());
+                        return template(this.data);
+                    }
+                });
+            }
+
+            $('#mediaDirectLinkSection').css('display', 'block');
+            var ds = new slide.InfiniteDataSource(items);
+            var sl = new slide.Slide($('#mediaDirectLinkList').get(0), ds, {
+                panelsToShow  : 1,
+                panelsToSlide : 1,
+                duration:800,
+                disableOverflow:true
+            });
+
+            var setMenu = function(index) {
+                $('#mediaDirectLinkMenu').children('.on').removeClass('on');
+                $('#mediaDirectLinkMenu').children().eq(index).addClass('on');
+            }
+
+            var changeSlide = function(event){
+                ds.queryCurrent().then(function(current){
+                    setMenu(current.data.index);
+                });
+            };
+            sl.on(""prev"", changeSlide);
+            sl.on(""next"", changeSlide);
+
+            $('#mediaDirectLinkMenu a').on('click', function(){
+                var page = $(this).attr('idx')*1;
+                ds.setIndex(page);
+                sl.refresh();
+                setMenu(page);
+            })
+        }
+
+        createRealtimeIssue();
+        createMediaDirectLink();
+	
+	"
