@@ -1,0 +1,15 @@
+val e = d.map {wordAndCount => (wordAndCount._2, wordAndCount._1)}
+
+val sortedF = e.sortByKey(false)
+
+val sortedG = sortedF.map { countAndWord => (countAndWord._2, countAndWord._1)}
+
+val sortedH = sortedG.collect
+
+sortedH.foreach(println)
+
+val sortedI = sortedH.map{ case (count, id) => (id, count)}
+
+val top3J = sortedI.take(3)
+
+top3J.foreach(println)
