@@ -1,0 +1,17 @@
+#read
+pcl <- read.df("/edudata/product_click.log", source = "csv", delimiter=" ")
+
+#change name
+names(pcl) <- c("click_dt","pid")
+
+#group
+group_pid <- groupBy(pcl, "pid")
+
+#count
+count_pid <- agg(group_pid, pid="count")
+
+#change name
+names(count_pid) <- c("pid","cnt")
+
+#arrange
+product <- arrange(count_pid,desc(count_pid$cnt))
